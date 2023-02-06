@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;500;600;700&display=swap');
+
+body{
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blueviolet;
+}
+
+.cabecalho-img{
+    mix-blend-mode: multiply;
+}
