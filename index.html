@@ -11,8 +11,9 @@
 <body>
     <header>
         <div class="container-cabecalho">
-            <h1 class="cabecalho">Financial Control</h1>
+            <h1 class="cabecalho">Financial </h1>
             <img src="img/gitmoney.png" alt="Img masc github Octodex" class="cabecalho-img">
+            <h1 class="cabecalho"> Control</h1>
         </div>
     </header>
     <main>
@@ -43,7 +44,7 @@
         </section>
 
         <section class="transacao">
-            <a href="#" class="novatransacao">+ Adicionar Valores</a>
+            <a href="#" class="novatransacao open">+ Adicionar Valores</a>
 
             <table id="tabela-info">
                 <thead>
@@ -72,10 +73,37 @@
             </table>
         </section>
 
+        <div class="modal_total ">
+            <div class="modal">
+                <h2 class="titulo-form">Nova Transação 💸</h2>
+                <form action="">
+                    <div class="item-form">
+                        <label for="descricao"></label>
+                        <input type="text" name="descricao" id="descricao" placeholder="Descrição">
+                    </div>
+
+                    <div class="item-form">
+                        <label for="valor"></label>
+                        <input type="number" name="valor" step="0.01" id="valor" placeholder="0,00">
+                        <p class="text-fomr">Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais</p>
+                    </div>
+
+                    <div class="item-form">
+                        <label for="data"></label>
+                        <input type="date" name="data" id="data">
+                    </div>
+                </form>
+                <div class="botoes">
+                    <a href="#"  class="button-form cancelar close">Cancelar</a>
+                    <button>Enviar</button>
+                </div>
+            </div>
+        </div>
+
     </main>
     <footer>
         <p class="footer">Produzido por Gabriel Moreira</p>
     </footer>
-    
+    <script src="main.js"></script>
 </body>
 </html>

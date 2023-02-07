@@ -20,7 +20,7 @@ header{
     display: flex;
     align-items:start;
     justify-content: center;
-    background-color: var(--roxo-azulado);
+    background-color: var(--azul-esc);
     color: var(--branco);
     height: 25vh;
 }
@@ -80,17 +80,18 @@ main {
     color: var(--branco);
 }
 
-a {
+.novatransacao {
     color: var(--verde-escuro);
 }
 
-a:hover{
+.novatransacao:hover{
     color: var(--verde-claro);
 }
 
 .transacao{
     display: block;
     width: 100%;
+    overflow: auto;
    
 }
 
@@ -126,12 +127,114 @@ table thead tr th, table tbody tr td{
     font-weight:normal;
 }
 
-.gasto{
+.gasto {
     color: var(--vermelho);
 }
 .entrada{
     color: var(--verde-claro);
 }
+/*modal*/
+.modal_total{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.60);
+    color:var(--azul-esc);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.ative{
+    opacity: 1;
+    visibility: visible;
+    
+}
+
+.modal{
+    background-color: var(--bege-claro);
+    padding: 2em;
+    width: min(60vw, 400px);
+    
+}
+
+modal .form{
+    display: flex;
+    align-items: center;
+}
+
+.item-form{
+    margin: 1em;
+    width: 90%;
+}
+
+.item-form input{
+    border-radius: .5em;
+    width: 70%;
+    border: 1px solid var(--azul-esc);
+}
+
+input::placeholder{
+    padding: 1em;
+}
+
+.text-fomr{
+    font-size: small;
+    font-weight:100;
+    
+}
+
+.botoes{
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-form, .botoes button{
+    padding: .25em;
+    background: transparent;
+    border-radius: 25px;
+    opacity: .5;
+}
+
+.button-form{
+    color: var(--vermelho);
+    border: 1px solid var(--vermelho);
+}
+
+.botoes button{
+    color: var(--verde-escuro);
+    border: 1px solid var(--verde-escuro);
+    cursor: pointer;
+}
+
+.botoes button:hover{
+    color: var(--verde-claro);
+    border: 1px solid var(--verde-claro); 
+}
+
+.button-form:hover{
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
