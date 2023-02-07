@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <title>FC | Home</title>
 </head>
 <body>
     <header>
-        <h1 class="cabecalho">Financial.Control</h1>
-        <img src="img/gitmoney.png" alt="Img masc github Octodex" class="cabecalho-img">
+        <div class="container-cabecalho">
+            <h1 class="cabecalho">Financial Control</h1>
+            <img src="img/gitmoney.png" alt="Img masc github Octodex" class="cabecalho-img">
+        </div>
     </header>
     <main>
         <section class="balanco-financeiro">
             <div class="card">
                 <h3>
                     <span>Entradas</span>
-                    <img src="" alt="">
+                    <img src="img/svg/plus.svg" alt="">
                 </h3>
                 <p class="entradas">R$00,00</p>
             </div>
@@ -25,41 +28,46 @@
             <div class="card">
                 <h3>
                     <span>Saídas</span>
-                    <img src="" alt="">
+                    <img src="img/svg/minus.svg" alt="">
                 </h3>
                 <p class="saidas">R$00,00</p>
             </div>
 
-            <div class="card">
+            <div class="card card-total" >
                 <h3>
                     <span>Total</span>
-                    <img src="" alt="">
+                    <img src="img/svg/total.svg" alt="">
                 </h3>
                 <p class="balanco">R$00,00</p>
             </div>
         </section>
 
         <section class="transacao">
-            <a href="#" class="novatransacao">Adicionar Valores</a>
+            <a href="#" class="novatransacao">+ Adicionar Valores</a>
 
-            <table class="tabela-info">
+            <table id="tabela-info">
                 <thead>
-                    <th>Descrição</th>
-                    <th>Valor</th>
-                    <th>Data</th>
-                    <td></td>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                        <td></td>
+                    </tr>
                 </thead>
                 <tbody>
-                    <td>Salario</td>
-                    <td>8.000,00</td>
-                    <td>06/02/2023</td>
-                    <td></td>
-                </tbody>
-                <tbody>
-                    <td>internet</td>
-                    <td>-100,00</td>
-                    <td>06/02/2023</td>
-                    <td></td>
+                    <tr>
+                        <td class="descricao">Salario</td>
+                        <td class="entrada">8.000,00</td>
+                        <td class="data">06/02/2023</td>
+                        <td><img src="img/svg/minus.svg" alt=""></td>
+                    </tr>
+                
+                    <tr>
+                        <td class="descricao">internet</td>
+                        <td class="gasto">-100,00</td>
+                        <td class="data">06/02/2023</td>
+                        <td><img src="img/svg/minus.svg" alt=""></td>
+                    </tr>
                 </tbody>
             </table>
         </section>

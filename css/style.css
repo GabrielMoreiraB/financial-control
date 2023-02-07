@@ -1,16 +1,144 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;500;600;700&display=swap');
 
+:root{
+    --roxo-azulado : #373D98;
+    --azul-esc: #1a1e56;
+    --branco: #ffffff;
+    --bege-claro:hsl(210, 10%, 92%);
+    --cinza:hsl(200, 2%, 69%);
+    --verde-claro: #3dd705; 
+    --verde-escuro:  #2D4A22;
+    --vermelho: red;
+}
+
 body{
     font-family: 'Montserrat Alternates', sans-serif;
+    background-color: var(--bege-claro);
 }
 
 header{
     display: flex;
-    align-items: center;
+    align-items:start;
     justify-content: center;
-    background-color: blueviolet;
+    background-color: var(--roxo-azulado);
+    color: var(--branco);
+    height: 25vh;
+}
+
+main {
+    width: min(90vw, 800px);
+    margin: auto;
+    
+}
+
+.cabecalho{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.container-cabecalho{
+    display: flex;
+    align-items: center;
 }
 
 .cabecalho-img{
-    mix-blend-mode: multiply;
+    width: 100px;
+}
+
+.balanco-financeiro{
+    margin-top: -4em;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+}
+
+.card{
+    background-color: var(--branco);
+    color: var(--azul-esc);
+    width: 100%;
+    padding: 1em;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.card h3{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.card p{
+    font-size: 24px;
+}
+
+.card-total{
+    background-color: var(--verde-claro);
+    color: var(--branco);
+}
+
+a {
+    color: var(--verde-escuro);
+}
+
+a:hover{
+    color: var(--verde-claro);
+}
+
+.transacao{
+    display: block;
+    width: 100%;
+   
+}
+
+.novatransacao{
+    display: inline-block;
+    padding: 1em;
+}
+
+#tabela-info{
+    width: 100%;
+    border-spacing: 0 0.5em ;
+    
+}
+
+table tr {
+    background: var(--branco);
+    padding: 1em 2em;
+    text-align: left;
+    
+}
+
+table tbody tr{
+    opacity: .6;
+}
+
+table tbody tr:hover{
+    opacity: 1;
+}
+
+table thead tr th, table tbody tr td{
+    color: var(--roxo-azulado);
+    padding: 1em;
+    font-weight:normal;
+}
+
+.gasto{
+    color: var(--vermelho);
+}
+.entrada{
+    color: var(--verde-claro);
+}
+
+
+
+
+
+footer{
+    text-align: center;
+    color: var(--roxo-azulado);
+    padding: 4em 2em;
 }
