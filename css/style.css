@@ -244,4 +244,20 @@ footer{
     text-align: center;
     color: var(--roxo-azulado);
     padding: 4em 2em;
+    width: 100%;
+    
+    position: fixed;
+    bottom: 0;
+}
+
+@media (min-width: 720px){
+    .balanco-financeiro{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1em;
+    }
+
+    .card{
+        width: auto;
+    }
 }
