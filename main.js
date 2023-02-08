@@ -22,29 +22,7 @@ document.querySelector('.open').addEventListener('click', () =>{
 
 //movimentação --------------------*
 
-const transacao = [
-    {
-        id: 1,
-        descricao: 'salario',
-        valor: 5000,
-        classcor: 'entrada',
-        data: '06/02/2023',
-    },
-    {
-        id: 2,
-        descricao: 'luz',
-        valor: 120,
-        classcor: 'gasto',
-        data: '01/02/2023',
-    },
-    {
-        id: 3,
-        descricao:'internet',
-        valor: 100.90,
-        classcor: 'gasto',
-        data: '01/02/2023',
-    }
-]
+const transacao = []
 
 const form = document.getElementById('novoItem')
 
@@ -53,23 +31,26 @@ form.addEventListener('submit',function(event){
 
     const descricao = event.target.elements['descricao'];
     let valor = event.target.elements['valor'].value;
-    let data = event.target.elements['data'];
+    let data = event.target.elements['data'].value;
     //console.log(descricao.value, valor.value, data.value);
 
     const classcor = Number(valor) < 0 ? "gasto" : "entrada"
 
     valor = trataDinheiro(valor);
-    trataData(data);
+    data = trataData(data);
 
     const itemAtual = {
         "descricao":descricao.value,
         "valor": valor,
         "classcor": classcor,
-        "data": data.value,
+        "data": data
     }
 
     transacao.push(itemAtual);
+
+
     criaTransacao(transacao);
+    banaco();
 })
 
 
@@ -96,13 +77,46 @@ function trataDinheiro(valor){
     valor = valor.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL"
-    })
-    const a =(sinal + valor);
+    });
     return (sinal + valor);
 }
 
 function trataData(data){
-
+    const separaData = data.split("-");
+    return `${separaData[2]}/${separaData[1]}/${separaData[0]}`;
 }
 
+
+
+
+let balancoEntradas ='';
+let balancoSaidas = ''; 
+let balancoTotal = ''; 
+let entradas = document.querySelector('.entradas'); 
+console.log(entradas.innerHTML)
+let saidas = document.querySelector('.saidas');
+let total = document.querySelector('.balanco');
+
+function banaco(){
+    transacao.forEach(function(item){;
+        if(item.classcor === 'entrada'){
+            balancoEntradas = balancoEntradas +  item.valor;
+            console.log(balancoEntradas )
+            console.log( item.valor )
+        } else if(item.classcor === 'gasto'){
+            let valor = Number(String(item.valor).replace(/-/,''));
+            balancoSaidas += valor;
+        }
+    })
+    entradas.innerHTML = "";
+    entradas.innerHTML = balancoEntradas;
+    saidas.innerHTML = balancoSaidas;
+    total.innerHTML = balancoEntradas - balancoSaidas;
+}
+
+
+
+
+
 criaTransacao(transacao);
+
