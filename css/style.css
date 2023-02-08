@@ -211,13 +211,13 @@ input::placeholder{
     border: 1px solid var(--vermelho);
 }
 
-.botoes button{
+.botoes button, .cadastrar{
     color: var(--verde-escuro);
     border: 1px solid var(--verde-escuro);
     cursor: pointer;
 }
 
-.botoes button:hover{
+.cadastrar:hover{
     color: var(--verde-claro);
     border: 1px solid var(--verde-claro); 
 }
