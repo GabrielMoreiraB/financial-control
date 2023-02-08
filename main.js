@@ -103,12 +103,12 @@ function balanco(){
         if(item.classcor === 'entrada'){
             balancoEntradas = Number(balancoEntradas) +  Number(item.valor);
         } else if(item.classcor === 'gasto'){
-            balancoSaidas = Number(balancoEntradas) +  Number(item.valor);;
+            balancoSaidas = Number(balancoSaidas) +  Number(item.valor);;
         }
     })
     entradas.innerHTML = trataDinheiro(balancoEntradas) ;
     saidas.innerHTML = trataDinheiro(balancoSaidas);
-    total.innerHTML =trataDinheiro( balancoEntradas - balancoSaidas);
+    total.innerHTML =trataDinheiro( balancoEntradas + balancoSaidas);
     balancoEntradas = balancoSaidas = 0;
 }
 
