@@ -246,8 +246,7 @@ footer{
     padding: 4em 2em;
     width: 100%;
     
-    position: fixed;
-    bottom: 0;
+    
 }
 
 @media (min-width: 720px){

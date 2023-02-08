@@ -52,17 +52,19 @@ form.addEventListener('submit',function(event){
     event.preventDefault()
 
     const descricao = event.target.elements['descricao'];
-    const valor = event.target.elements['valor'];
-    const data = event.target.elements['data'];
+    let valor = event.target.elements['valor'].value;
+    let data = event.target.elements['data'];
     //console.log(descricao.value, valor.value, data.value);
 
-    trataDinheiro(valor);
+    const classcor = Number(valor) < 0 ? "gasto" : "entrada"
+
+    valor = trataDinheiro(valor);
     trataData(data);
 
     const itemAtual = {
         "descricao":descricao.value,
-        "valor": valor.value,
-        "classcor":'gasto',
+        "valor": valor,
+        "classcor": classcor,
         "data": data.value,
     }
 
@@ -88,7 +90,15 @@ function criaTransacao(transacao) {
 }
 
 function trataDinheiro(valor){
-
+    const sinal = Number(valor) < 0 ? "-" : " "
+    valor = String(valor).replace(/-/,'');
+    valor = Number(valor);
+    valor = valor.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    })
+    const a =(sinal + valor);
+    return (sinal + valor);
 }
 
 function trataData(data){
