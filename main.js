@@ -23,52 +23,55 @@ document.querySelector('.open').addEventListener('click', () =>{
 //movimentação --------------------*
 
 const transacao = []
-
+const tbody = document.querySelector('tbody');
 const form = document.getElementById('novoItem')
 
 form.addEventListener('submit',function(event){
     event.preventDefault()
 
     const descricao = event.target.elements['descricao'];
-    let valor = event.target.elements['valor'].value;
-    let data = event.target.elements['data'].value;
-    //console.log(descricao.value, valor.value, data.value);
+    const valor = event.target.elements['valor'];
+    const data = event.target.elements['data'];
+    //console.log(descricao.value, typeof(valor.value), data.value);
 
-    const classcor = Number(valor) < 0 ? "gasto" : "entrada"
 
-    valor = trataDinheiro(valor);
-    data = trataData(data);
-
+    const classcor = Number(valor.value) < 0 ? "gasto" : "entrada"
+    //console.log(classcor)
     const itemAtual = {
         "descricao":descricao.value,
-        "valor": valor,
+        "valor": valor.value,
         "classcor": classcor,
-        "data": data
+        "data": data.value
     }
 
     transacao.push(itemAtual);
 
 
-    criaTransacao(transacao);
-    banaco();
+    criaTransacao(itemAtual);
+    balanco()
 })
 
 
 
-function criaTransacao(transacao) {
-    const novaTransacao = document.querySelector('tbody'); 
+function criaTransacao(item) {
+     const tr = document.createElement('tr');
+     tr.innerHTML=displayTransacao(item);
+    tbody.appendChild(tr);
+
+}    
+function displayTransacao(item) {
+        const itemValor =  trataDinheiro(item.valor)
+        const itemData = trataData(item.data)
     
-    let displayTransacao = transacao.map(function(item){
-        return `<tr>
-        <td class="descricao">${item.descricao}</td>
-        <td class="${item.classcor}">${item.valor}</td>
-        <td class="data">${item.data}</td>
-        <td><img src="img/svg/minus.svg" alt=""></td>
-        </tr>`
-    })
-    novaTransacao.innerHTML = displayTransacao.join("");
-    //console.log(novaTransacao.innerHTML)
-}
+    const html = ` <td class="descricao">${item.descricao}</td>
+        <td class="${item.classcor}">${itemValor}</td>
+        <td class="data">${itemData}</td>
+        <td><img src="img/svg/minus.svg" alt=""></td>`
+
+        return html
+    }
+    
+transacao.forEach(criaTransacao)
 
 function trataDinheiro(valor){
     const sinal = Number(valor) < 0 ? "-" : " "
@@ -91,32 +94,25 @@ function trataData(data){
 
 let balancoEntradas ='';
 let balancoSaidas = ''; 
-let balancoTotal = ''; 
 let entradas = document.querySelector('.entradas'); 
 console.log(entradas.innerHTML)
 let saidas = document.querySelector('.saidas');
 let total = document.querySelector('.balanco');
-
-function banaco(){
-    transacao.forEach(function(item){;
+function balanco(){
+    transacao.forEach(function(item){
         if(item.classcor === 'entrada'){
-            balancoEntradas = balancoEntradas +  item.valor;
-            console.log(balancoEntradas )
-            console.log( item.valor )
+            balancoEntradas = Number(balancoEntradas) +  Number(item.valor);
         } else if(item.classcor === 'gasto'){
-            let valor = Number(String(item.valor).replace(/-/,''));
-            balancoSaidas += valor;
+            balancoSaidas = Number(balancoEntradas) +  Number(item.valor);;
         }
     })
-    entradas.innerHTML = "";
-    entradas.innerHTML = balancoEntradas;
-    saidas.innerHTML = balancoSaidas;
-    total.innerHTML = balancoEntradas - balancoSaidas;
+    entradas.innerHTML = trataDinheiro(balancoEntradas) ;
+    saidas.innerHTML = trataDinheiro(balancoSaidas);
+    total.innerHTML =trataDinheiro( balancoEntradas - balancoSaidas);
+    balancoEntradas = balancoSaidas = 0;
 }
 
 
 
 
-
-criaTransacao(transacao);
 
