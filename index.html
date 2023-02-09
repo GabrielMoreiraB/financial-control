@@ -67,18 +67,18 @@
                 <form action="" id="novoItem">
                     <div class="item-form">
                         <label for="descricao"></label>
-                        <input type="text" name="descricao" id="descricao" placeholder="Descrição">
+                        <input type="text" name="descricao" id="descricao" placeholder="Descrição" required>
                     </div>
 
                     <div class="item-form">
                         <label for="valor"></label>
-                        <input type="number" name="valor" step="0.01" id="valor" placeholder="0,00">
+                        <input type="number" name="valor" step="0.01" id="valor" placeholder="0,00" required>
                         <p class="text-fomr">Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais</p>
                     </div>
 
                     <div class="item-form">
                         <label for="data"></label>
-                        <input type="date" name="data" id="data">
+                        <input type="date" name="data" id="data" required>
                     </div>
                     <input type="submit" value="Adicionar" class="cadastrar">
                 </form>

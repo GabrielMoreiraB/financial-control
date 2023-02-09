@@ -22,7 +22,7 @@ document.querySelector('.open').addEventListener('click', () =>{
 
 //movimentação --------------------*
 
-const transacao = []
+const transacao = JSON.parse(localStorage.getItem('transacao')) || []
 const tbody = document.querySelector('tbody');
 const form = document.getElementById('novoItem')
 
@@ -49,6 +49,11 @@ form.addEventListener('submit',function(event){
 
     criaTransacao(itemAtual);
     balanco()
+
+    localStorage.setItem('transacao', JSON.stringify(transacao))
+
+    descricao.value = "";
+    valor.value = ";"
 })
 
 
@@ -57,8 +62,9 @@ function criaTransacao(item) {
      const tr = document.createElement('tr');
      tr.innerHTML=displayTransacao(item);
     tbody.appendChild(tr);
+    
+}
 
-}    
 function displayTransacao(item) {
         const itemValor =  trataDinheiro(item.valor)
         const itemData = trataData(item.data)
@@ -69,7 +75,7 @@ function displayTransacao(item) {
         <td><img src="img/svg/minus.svg" alt=""></td>`
 
         return html
-    }
+}
     
 transacao.forEach(criaTransacao)
 
@@ -98,6 +104,7 @@ let entradas = document.querySelector('.entradas');
 console.log(entradas.innerHTML)
 let saidas = document.querySelector('.saidas');
 let total = document.querySelector('.balanco');
+
 function balanco(){
     transacao.forEach(function(item){
         if(item.classcor === 'entrada'){
