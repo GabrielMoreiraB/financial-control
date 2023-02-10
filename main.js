@@ -32,8 +32,8 @@ form.addEventListener('submit',function(event){
     const descricao = event.target.elements['descricao'];
     const valor = event.target.elements['valor'];
     const data = event.target.elements['data'];
-    console.log(descricao, valor, data);
-    validacaoDados(descricao, valor, data);
+    //console.log(descricao, valor, data);
+    
 
     const classcor = Number(valor.value) < 0 ? "gasto" : "entrada"
     //console.log(classcor)
@@ -147,11 +147,7 @@ function deletaElemento(tag, id) {
 }
 
 
-function validacaoDados(descricao, valor, data){
-    if( !descricao || !valor || !data ){
-        throw new Error('Por favor, preencha os dados corretamente!')
-    }
-}
+
 
 
 /*const listaBotaoExc = document.querySelectorAll('.img-delet');
