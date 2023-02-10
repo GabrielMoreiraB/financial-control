@@ -13,7 +13,11 @@
 
 body{
     font-family: 'Montserrat Alternates', sans-serif;
-    background-color: var(--bege-claro);
+    background: url(../img/gif-claro.gif);
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position-x: left;
+    background-position-y: bottom;
 }
 
 header{
@@ -28,6 +32,7 @@ header{
 main {
     width: min(90vw, 800px);
     margin: auto;
+
     
 }
 
@@ -38,11 +43,13 @@ main {
 
 .container-cabecalho{
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 .cabecalho-img{
     width: 100px;
+    margin: -10px 0;
 }
 
 .balanco-financeiro{
@@ -54,7 +61,7 @@ main {
 }
 
 .card{
-    background-color: var(--branco);
+    background-color:  var(--bege-claro);
     color: var(--azul-esc);
     width: 100%;
     padding: 1em;
@@ -106,8 +113,9 @@ main {
     
 }
 
+
 table tr {
-    background: var(--branco);
+    box-shadow: 0 1px 3px  #1a1e567e;
     padding: 1em 2em;
     text-align: left;
     
@@ -133,11 +141,14 @@ table thead tr th, table tbody tr td{
 .entrada{
     color: var(--verde-claro);
 }
+
+
+
 /*modal*/
 .modal_total{
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.60);
+    background-color: #1c114599;
     color:var(--azul-esc);
 
     position: fixed;
@@ -231,7 +242,7 @@ input::placeholder{
 }
 
 .img-delet{
-    width: 30px;
+    width: 10%;
     cursor: pointer;
     background: url(../img/svg/minus.svg);
     background-repeat: no-repeat;
@@ -242,15 +253,28 @@ input::placeholder{
 
 
 footer{
-    text-align: center;
+    text-align: end;
+    font-size: small;
     color: var(--roxo-azulado);
     padding: 4em 2em;
-    width: 100%;
+    height: 5%;
+    
     
     
 }
 
 @media (min-width: 720px){
+
+    .container-cabecalho{
+        flex-direction: row;
+    }
+    
+    .cabecalho-img{
+        width: 150px;
+        margin: 0;
+    }
+
+
     .balanco-financeiro{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -259,5 +283,10 @@ footer{
 
     .card{
         width: auto;
+    }
+
+    footer{
+        text-align: center;
+        font-size: medium;
     }
 }

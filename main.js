@@ -32,8 +32,8 @@ form.addEventListener('submit',function(event){
     const descricao = event.target.elements['descricao'];
     const valor = event.target.elements['valor'];
     const data = event.target.elements['data'];
-    //console.log(descricao.value, typeof(valor.value), data.value);
-
+    console.log(descricao, valor, data);
+    validacaoDados(descricao, valor, data);
 
     const classcor = Number(valor.value) < 0 ? "gasto" : "entrada"
     //console.log(classcor)
@@ -106,7 +106,7 @@ function trataData(data){
 let balancoEntradas ='';
 let balancoSaidas = ''; 
 let entradas = document.querySelector('.entradas'); 
-console.log(entradas.innerHTML)
+//console.log(entradas.innerHTML)
 let saidas = document.querySelector('.saidas');
 let total = document.querySelector('.balanco');
 
@@ -142,8 +142,15 @@ function deletaElemento(tag, id) {
 
     transacao.splice(transacao.findIndex(elemento => elemento.id === id), 1);
 
-    localStorage.setItem("itens", JSON.stringify(transacao));
+    localStorage.setItem('transacao', JSON.stringify(transacao));
     balanco();
+}
+
+
+function validacaoDados(descricao, valor, data){
+    if( !descricao || !valor || !data ){
+        throw new Error('Por favor, preencha os dados corretamente!')
+    }
 }
 
 
