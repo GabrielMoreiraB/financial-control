@@ -76,7 +76,6 @@ function displayTransacao(item) {
         <td class="${item.classcor}">${itemValor}</td>
         <td class="data">${itemData}</td>
        
-        
         `
 
         return html
