@@ -233,23 +233,11 @@ input::placeholder{
 .img-delet{
     width: 30px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: url(../img/svg/minus.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

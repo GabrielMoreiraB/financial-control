@@ -128,7 +128,7 @@ function balanco(){
 function botaoDeleta(id) {
     const elementoBotao = document.createElement("th");
     elementoBotao.classList.add("img-delet");
-    elementoBotao.innerText = "X"
+    elementoBotao.innerText = ""
 
     elementoBotao.addEventListener("click", function() {
         deletaElemento(this.parentNode, id)
