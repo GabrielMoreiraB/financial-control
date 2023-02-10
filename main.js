@@ -44,23 +44,26 @@ form.addEventListener('submit',function(event){
         "data": data.value
     }
 
+    itemAtual.id = transacao[transacao.length -1] ? (transacao[transacao.length-1]).id + 1 : 0;
+
+    //console.log(itemAtual.id)
     transacao.push(itemAtual);
 
 
     criaTransacao(itemAtual);
     balanco()
 
-    localStorage.setItem('transacao', JSON.stringify(transacao))
-
+    localStorage.setItem('transacao', JSON.stringify(transacao));
     descricao.value = "";
     valor.value = ";"
 })
 
 
 
-function criaTransacao(item) {
+function criaTransacao(item,) {
      const tr = document.createElement('tr');
      tr.innerHTML=displayTransacao(item);
+     tr.appendChild(botaoDeleta(item.id));
     tbody.appendChild(tr);
     
 }
@@ -68,11 +71,13 @@ function criaTransacao(item) {
 function displayTransacao(item) {
         const itemValor =  trataDinheiro(item.valor)
         const itemData = trataData(item.data)
-    
+        
     const html = ` <td class="descricao">${item.descricao}</td>
         <td class="${item.classcor}">${itemValor}</td>
         <td class="data">${itemData}</td>
-        <td><img src="img/svg/minus.svg" alt=""></td>`
+       
+        
+        `
 
         return html
 }
@@ -119,6 +124,53 @@ function balanco(){
     balancoEntradas = balancoSaidas = 0;
 }
 
+
+function botaoDeleta(id) {
+    const elementoBotao = document.createElement("th");
+    elementoBotao.classList.add("img-delet");
+    elementoBotao.innerText = "X"
+
+    elementoBotao.addEventListener("click", function() {
+        deletaElemento(this.parentNode, id)
+    })
+
+    return elementoBotao
+}
+
+function deletaElemento(tag, id) {
+    tag.remove()
+
+    transacao.splice(transacao.findIndex(elemento => elemento.id === id), 1);
+
+    localStorage.setItem("itens", JSON.stringify(transacao));
+    balanco();
+}
+
+
+/*const listaBotaoExc = document.querySelectorAll('.img-delet');
+//console.log(listaBotaoExc);
+function exclusao() {
+    listaBotaoExc.forEach(function(item){
+        item.addEventListener('click', function(){
+            console.log(tbody)
+            const botaoExc = this.parentNode;
+            let indexAtual = botaoExc.querySelector('.indexTab').innerHTML;
+            console.log(indexAtual,1);
+            botaoExc.remove();
+            console.log(tbody)
+            console.log(transacao)
+            transacao.splice(indexAtual,1)
+            console.log(transacao)
+            balanco()
+               
+        })
+        
+    })
+   
+}*/
+
+
+balanco();
 
 
 
