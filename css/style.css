@@ -9,25 +9,35 @@
     --verde-claro: #3dd705; 
     --verde-escuro:  #2D4A22;
     --vermelho: red;
+    --img-darkmode:url(../img/lua.png);
+    --bg-body: #ffffff;
+    --bg-header: #1a1e56;
+    --cor-letra:#1a1e56;
+    --sombra-cartao: 0 1px 3px  #1a1e567e;
+    --gif-dark: url(../img/gif-claro.gif);
 }
 
 body{
     font-family: 'Montserrat Alternates', sans-serif;
-    background: url(../img/gif-claro.gif);
-    background-color: var(--branco);
+    background: var(--gif-dark);
+    background-color: var(--bg-body);
     background-repeat: no-repeat;
     background-size: 150px;
     background-position-x: left;
     background-position-y: bottom;
+    margin-bottom: 3em;
+    transition: .5s;
+    user-select:none;
 }
 
 header{
     display: flex;
     align-items:start;
     justify-content: center;
-    background-color: var(--azul-esc);
+    background-color: var(--bg-header);
     color: var(--branco);
     height: 25vh;
+    
 }
 
 main {
@@ -36,6 +46,31 @@ main {
 
     
 }
+
+#darkMode{
+    display: none;
+}
+
+.muda-tema{
+    background-image:var(--img-darkmode);
+    
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    cursor: pointer;
+    }
+
+    .dark-mode{
+        --gif-dark: url(../img/gif-dark.gif);
+        --img-darkmode:url(../img/sol.png);
+        --bg-body: rgb(44, 46, 57);
+        --bg-header:hsl(210, 56%, 38%);
+        --cor-letra:#ffffff;
+        --sombra-cartao: 0 1px 3px  #f8f8f87e; 
+    }
 
 .cabecalho{
     font-size: 28px;
@@ -116,7 +151,7 @@ main {
 
 
 table tr {
-    box-shadow: 0 1px 3px  #1a1e567e;
+    box-shadow: var(--sombra-cartao);
     padding: 1em 2em;
     text-align: left;
     
@@ -131,7 +166,7 @@ table tbody tr:hover{
 }
 
 table thead tr th, table tbody tr td{
-    color: var(--roxo-azulado);
+    color: var(--cor-letra);
     padding: 1em;
     font-weight:normal;
 }
@@ -256,7 +291,7 @@ input::placeholder{
 footer{
     text-align: end;
     font-size: small;
-    color: var(--roxo-azulado);
+    color: var(--cor-letra);
     padding: 4em 2em;
     height: 5%;
     
@@ -265,6 +300,10 @@ footer{
 }
 
 @media (min-width: 720px){
+
+    body{
+        background-size: 200px;
+    }
 
     .container-cabecalho{
         flex-direction: row;
@@ -289,5 +328,10 @@ footer{
     footer{
         text-align: center;
         font-size: medium;
+    }
+}
+@media (min-width: 1200px){
+    body{
+        background-size: 300px;
     }
 }

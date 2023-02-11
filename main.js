@@ -145,33 +145,10 @@ function deletaElemento(tag, id) {
     balanco();
 }
 
-
-
-
-
-/*const listaBotaoExc = document.querySelectorAll('.img-delet');
-//console.log(listaBotaoExc);
-function exclusao() {
-    listaBotaoExc.forEach(function(item){
-        item.addEventListener('click', function(){
-            console.log(tbody)
-            const botaoExc = this.parentNode;
-            let indexAtual = botaoExc.querySelector('.indexTab').innerHTML;
-            console.log(indexAtual,1);
-            botaoExc.remove();
-            console.log(tbody)
-            console.log(transacao)
-            transacao.splice(indexAtual,1)
-            console.log(transacao)
-            balanco()
-               
-        })
-        
-    })
-   
-}*/
-
-
+document.getElementById('darkMode').addEventListener('click', function(){ 
+    document.body.classList.toggle("dark-mode");  
+  })
+ 
 balanco();
 
 
