@@ -1,31 +1,29 @@
-# Menu Restaurante 🍽
+# Financial Control 💲
 
-Projeto baseado na criação de um menu responsivo para um restaurante, totalmente interativo com funcionalidade de filtragem de pratos de acordo com a refeição desejada. 
+Projeto baseado na criação de um balanço financeiro responsivo, totalmente interativo com funcionalidade de adição de gastos e renda e, se necessario, exclusão dos mesmos. 
 
 ## 🚀 Começando
 
-Você pode ver o site em funcionamento através **[deste link](https://gabrielmoreirab.github.io/Menu-Restaurante/)**
+Você pode ver o site em funcionamento através **[deste link](https://financial-control-chi.vercel.app/)**
 
 ## 📦 Imagens e Explicação
 
-Nosso menu conta com um filtro no cabeçalho para auxiliar a escolha através da refeição. Além disso, cada card (que corresponde a um prato) Contem nome do prato, valor, itens discriminados e uma foto. Ao virar o card, temos uma informação/História interessante sobre aquele prato.
-Foi implementado um modo dark ao projeto, alternado através do botão no canto superior esquerdo da página.
+Nosso site conta com um cabeçalho com 3 cards que representão o somatorio de entradas, gastos e o balanço, respectivamente. Além disso, cada item da nossa lista que foi adicionado, pode ser removido através do simbolo:
+![alt text](https://github.com/GabrielMoreiraB/financial-control/blob/main/img/svg/minus.svg)
+
+Foi implementado um modo dark ao projeto, alternado através do botão no canto superior direito da página.
 
 * **Versão Desktop 💻** - 
-![alt text](https://github.com/GabrielMoreiraB/Menu-Restaurante/blob/main/images/desktop.png)
+![alt text](https://github.com/GabrielMoreiraB/financial-control/blob/main/img/desktop.png)
 
-* **Versão Tablet 📱** - 
-![alt text](https://github.com/GabrielMoreiraB/Menu-Restaurante/blob/main/images/tablet.png)
 
 * **Versão Mobile 🤳** - 
-![alt text](https://github.com/GabrielMoreiraB/Menu-Restaurante/blob/main/images/mobile.png)
+![alt text](https://github.com/GabrielMoreiraB/financial-control/blob/main/img/mobile.png)
 
-#* **Costas do card** - 
 
-![alt text](https://github.com/GabrielMoreiraB/Menu-Restaurante/blob/main/images/cardflip.png)
 
-OBS: O card Diner Double possui textos reais como exemplo da aplicação proposta!
-## 🛠️ Construído com
+OBS: Os mascotes do GitHub utilizados nesse projeto (os Octocats) são de autoria de  **[Octodex](https://octodex.github.com/)**
+![alt text](https://github.com/GabrielMoreiraB/financial-control/blob/main/img/steroidtocat.png)
 
 Esse projeto foi construido utilizando as seguntes ferramentas:
 
@@ -33,3 +31,4 @@ Esse projeto foi construido utilizando as seguntes ferramentas:
 * CSS;
 * JavaScript;
 
+## 🖐 Obrigado!!
