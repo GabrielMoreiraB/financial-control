@@ -1,6 +1,6 @@
 # Financial Control 💲
 
-Projeto baseado na criação de um balanço financeiro responsivo, totalmente interativo com funcionalidade de adição de gastos e renda e, se necessario, exclusão dos mesmos. 
+Projeto baseado na criação de um balanço financeiro responsivo, totalmente interativo com funcionalidade de adição de gastos e renda e, se necessário, exclusão dos mesmos. 
 
 ## 🚀 Começando
 
