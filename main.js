@@ -34,7 +34,7 @@ form.addEventListener('submit',function(event){
     const data = event.target.elements['data'];
     //console.log(descricao, valor, data);
     
-
+    //const criada a partir do sinal do valor, para gerar a cor do item
     const classcor = Number(valor.value) < 0 ? "gasto" : "entrada"
     //console.log(classcor)
     const itemAtual = {
@@ -43,7 +43,8 @@ form.addEventListener('submit',function(event){
         "classcor": classcor,
         "data": data.value
     }
-
+    //numeração criada a partir dfo ultimo numero, aqui fica impossivel os ids se misturarem, pois sempre pegamos o 
+    //ultimo id e somamos 1 a ele.
     itemAtual.id = transacao[transacao.length -1] ? (transacao[transacao.length-1]).id + 1 : 0;
 
     //console.log(itemAtual.id)
@@ -52,7 +53,7 @@ form.addEventListener('submit',function(event){
 
     criaTransacao(itemAtual);
     balanco()
-
+    //salvar no storage
     localStorage.setItem('transacao', JSON.stringify(transacao));
     descricao.value = "";
     valor.value = ";"
@@ -61,16 +62,18 @@ form.addEventListener('submit',function(event){
 
 
 function criaTransacao(item,) {
-     const tr = document.createElement('tr');
-     tr.innerHTML=displayTransacao(item);
-     tr.appendChild(botaoDeleta(item.id));
+    const tr = document.createElement('tr');
+    tr.innerHTML=displayTransacao(item);
+    //adição do ID ao array
+    tr.appendChild(botaoDeleta(item.id));
     tbody.appendChild(tr);
     
 }
 
 function displayTransacao(item) {
-        const itemValor =  trataDinheiro(item.valor)
-        const itemData = trataData(item.data)
+    //tratamento dos valores e datas para exibição
+    const itemValor =  trataDinheiro(item.valor)
+    const itemData = trataData(item.data)
         
     const html = ` <td class="descricao">${item.descricao}</td>
         <td class="${item.classcor}">${itemValor}</td>
@@ -78,13 +81,15 @@ function displayTransacao(item) {
        
         `
 
-        return html
+    return html
 }
     
 transacao.forEach(criaTransacao)
 
 function trataDinheiro(valor){
+    //guardando o sinal do valor
     const sinal = Number(valor) < 0 ? "-" : " "
+    //substituindo o sinal de menos por vazio para realizar operações
     valor = String(valor).replace(/-/,'');
     valor = Number(valor);
     valor = valor.toLocaleString("pt-BR", {
@@ -145,33 +150,10 @@ function deletaElemento(tag, id) {
     balanco();
 }
 
-
-
-
-
-/*const listaBotaoExc = document.querySelectorAll('.img-delet');
-//console.log(listaBotaoExc);
-function exclusao() {
-    listaBotaoExc.forEach(function(item){
-        item.addEventListener('click', function(){
-            console.log(tbody)
-            const botaoExc = this.parentNode;
-            let indexAtual = botaoExc.querySelector('.indexTab').innerHTML;
-            console.log(indexAtual,1);
-            botaoExc.remove();
-            console.log(tbody)
-            console.log(transacao)
-            transacao.splice(indexAtual,1)
-            console.log(transacao)
-            balanco()
-               
-        })
-        
-    })
-   
-}*/
-
-
+document.getElementById('darkMode').addEventListener('click', function(){ 
+    document.body.classList.toggle("dark-mode");  
+  })
+ 
 balanco();
 
 
