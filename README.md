@@ -8,7 +8,7 @@ Você pode ver o site em funcionamento através **[deste link](https://financial
 
 ## 📦 Imagens e Explicação
 
-Nosso site conta com um cabeçalho com 3 cards que representão o somatorio de entradas, gastos e o balanço, respectivamente. Além disso, cada item da nossa lista que foi adicionado, pode ser removido através do simbolo:
+Nosso site conta com um cabeçalho com 3 cards que representam o somatóorio de entradas, gastos e o balanço, respectivamente. Além disso, cada item da nossa lista que foi adicionado, pode ser removido através do simbolo:
 ![alt text](https://github.com/GabrielMoreiraB/financial-control/blob/main/img/svg/minus.svg)
 
 Foi implementado um modo dark ao projeto, alternado através do botão no canto superior direito da página.
